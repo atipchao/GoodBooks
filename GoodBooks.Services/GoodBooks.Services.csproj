@@ -3,5 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
-
+  <ItemGroup>
+    <ProjectReference Include="..\GoodBooks.Data\GoodBooks.Data.csproj" />
+  </ItemGroup>
 </Project>

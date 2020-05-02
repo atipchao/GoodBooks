@@ -7,5 +7,9 @@ namespace GoodBooks.Data.Models{
         public string ReviewContent { get; set; }
         public DateTime CreatedOn { get; set; }
         public DateTime UpdatedOn { get; set; }
+       // a property refering back to the Book
+
+        public virtual Book Book {get; set;}
+
     }
 }

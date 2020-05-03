@@ -10,6 +10,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using GoodBooks.Data;
+using GoodBooks.Data.Models;
+using GoodBooks.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace GoodBooks.Web
 {
@@ -22,10 +26,18 @@ namespace GoodBooks.Web
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        // This method gets called by the runtime. Use this method to add services to the DI container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            
+            services.AddDbContext<GoodBooksDbContext>(opts =>
+            {
+                opts.EnableDetailedErrors();
+                opts.UseNpgsql(Configuration.GetConnectionString("goodbooks.dev"));
+            });
+
+            services.AddTransient<IBookService, BookService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,6 +48,12 @@ namespace GoodBooks.Web
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(builder => builder
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyMethod()
+            
+            );
             app.UseHttpsRedirection();
 
             app.UseRouting();

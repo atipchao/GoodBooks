@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using GoodBooks.Data;
 using GoodBooks.Data.Models;
@@ -8,29 +9,42 @@ namespace GoodBooks.Services
     public class BookService : IBookService
     {
         //create private read-only backing field
-        private readonly GoodBooksDBContext _db;
-        public BookService(GoodBooksDBContext db)
+        private readonly GoodBooksDbContext _db;
+        public BookService(GoodBooksDbContext db)
         {
             _db = db;
         }
         public void AddBook(Book book)
         {
-            throw new NotImplementedException();
+            _db.Add(book);
+            _db.SaveChanges();
         }
 
         public void DeleteBook(int BookId)
         {
-            throw new NotImplementedException();
+            try{
+            var bookToDelete = _db.Books.FirstOrDefault(s => s.Id == BookId);
+            if(bookToDelete != null){
+                _db.Books.Remove(bookToDelete);
+                _db.SaveChanges();
+            }
+            }catch(Exception){
+
+                throw new InvalidOperationException("Cant delete Book");
+            }
+
         }
 
         public List<Book> GetAllBooks()
         {
-            throw new NotImplementedException();
+            var books = _db.Books.ToList();
+            return books;
         }
 
         public Book GetBook(int BookId)
         {
-            throw new NotImplementedException();
+            var book = _db.Books.FirstOrDefault(c => c.Id == BookId);
+            return book;
         }
     }
 }

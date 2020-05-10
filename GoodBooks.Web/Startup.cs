@@ -29,6 +29,7 @@ namespace GoodBooks.Web
         // This method gets called by the runtime. Use this method to add services to the DI container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(); 
             services.AddControllers();
             
             services.AddDbContext<GoodBooksDbContext>(opts =>
@@ -48,15 +49,19 @@ namespace GoodBooks.Web
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors(builder => builder
-            .AllowAnyOrigin()
-            .AllowAnyMethod()
-            .AllowAnyMethod()
             
-            );
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(builder => builder
+            //.AllowAnyOrigin()
+            .WithOrigins(
+                "http://localhost:8080"
+                )
+            .AllowAnyMethod()
+            .AllowAnyMethod()
+            );
 
             app.UseAuthorization();
 

@@ -43,3 +43,6 @@ C:\projects\GoodBooks\GoodBooks.Web\bin\Debug\netcoreapp3.1\Microsoft.EntityFram
 C:\projects\GoodBooks\GoodBooks.Web\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\projects\GoodBooks\GoodBooks.Web\obj\Debug\netcoreapp3.1\GoodBooks.Web.csproj.CoreCompileInputs.cache
 C:\projects\GoodBooks\GoodBooks.Web\obj\Debug\netcoreapp3.1\GoodBooks.Web.MvcApplicationPartsAssemblyInfo.cache
+C:\projects\GoodBooks\GoodBooks.Web\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+C:\projects\GoodBooks\GoodBooks.Web\bin\Debug\netcoreapp3.1\System.Web.Http.dll
+C:\projects\GoodBooks\GoodBooks.Web\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll

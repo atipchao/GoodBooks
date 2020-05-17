@@ -9,3 +9,4 @@ C:\projects\GoodBooks\GoodBooks.Services\obj\Debug\netcoreapp3.1\GoodBooks.Servi
 C:\projects\GoodBooks\GoodBooks.Services\bin\Debug\netcoreapp3.1\GoodBooks.Data.dll
 C:\projects\GoodBooks\GoodBooks.Services\bin\Debug\netcoreapp3.1\GoodBooks.Data.pdb
 C:\projects\GoodBooks\GoodBooks.Services\obj\Debug\netcoreapp3.1\GoodBooks.Services.csproj.CopyComplete
+C:\projects\GoodBooks\GoodBooks.Services\obj\Debug\netcoreapp3.1\GoodBooks.Services.csproj.CoreCompileInputs.cache
